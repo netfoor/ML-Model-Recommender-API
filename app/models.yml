@@ -1,0 +1,24 @@
+models:
+  - name: gpt-3.5-turbo
+    provider: openai
+    context_length: 16000
+    cost_input: 0.001
+    cost_output: 0.002
+    speed: fast
+    tasks: [summarization, chat, classification]
+
+  - name: gpt-4o-mini
+    provider: openai
+    context_length: 128000
+    cost_input: 0.0005
+    cost_output: 0.0015
+    speed: fast
+    tasks: [summarization, chat, creative]
+
+  - name: gpt-4o
+    provider: openai
+    context_length: 128000
+    cost_input: 0.005
+    cost_output: 0.015
+    speed: medium
+    tasks: [creative, complex_reasoning]

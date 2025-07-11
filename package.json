@@ -1,0 +1,46 @@
+{
+  "name": "ml-recomendations",
+  "version": "1.0.0",
+  "description": "ML Model Recommender API - FastAPI service for cost-effective AI model recommendations",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "serverless deploy",
+    "deploy:dev": "serverless deploy --stage dev",
+    "deploy:prod": "serverless deploy --stage prod",
+    "remove": "serverless remove",
+    "logs": "serverless logs -f api -t",
+    "test": "pytest",
+    "test:coverage": "pytest --cov=app",
+    "start": "uvicorn app.main:app --reload --host 0.0.0.0 --port 8000",
+    "docker:build": "docker build -t model-recommender .",
+    "docker:run": "docker run -p 8000:8000 model-recommender",
+    "lint": "flake8 app/ test/",
+    "format": "black app/ test/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yourusername/ml-recomendations.git"
+  },
+  "keywords": [
+    "fastapi",
+    "ml",
+    "ai",
+    "openai",
+    "recommendation",
+    "cost-optimization",
+    "serverless",
+    "aws-lambda"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yourusername/ml-recomendations/issues"
+  },
+  "homepage": "https://github.com/yourusername/ml-recomendations#readme",
+  "dependencies": {
+    "serverless-python-requirements": "^6.1.2"
+  },
+  "devDependencies": {
+    "serverless": "^3.38.0"
+  }
+}

@@ -1,0 +1,10 @@
+# Development requirements
+pytest>=7.0.0
+pytest-cov>=4.0.0
+flake8>=6.0.0
+black>=23.0.0
+pytest-mock>=3.10.0
+
+# Additional development tools
+httpx>=0.24.0  # For testing HTTP requests
+pytest-asyncio>=0.21.0  # For async testing

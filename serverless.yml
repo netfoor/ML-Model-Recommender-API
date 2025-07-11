@@ -1,0 +1,23 @@
+service: model-recommender
+
+provider:
+  name: aws
+  region: us-east-1
+  runtime: python3.10
+
+functions:
+  api:
+    handler: app.main.handler
+    events:
+      - httpApi:
+          path: /recommend-model
+          method: post
+
+plugins:
+  - serverless-python-requirements
+
+custom:
+  pythonRequirements:
+    dockerizePip: true
+    slim: true
+    strip: false
