@@ -53,7 +53,7 @@ A FastAPI service that recommends the most cost-effective OpenAI model for a giv
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/ml-recomendations.git
+   git clone https://github.com/netfoor/ml-recomendations.git
    cd ml-recomendations
    ```
 
