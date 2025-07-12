@@ -19,7 +19,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yourusername/ml-recomendations.git"
+    "url": "git+https://github.com/netfoor/ml-recomendations.git"
   },
   "keywords": [
     "fastapi",
@@ -34,9 +34,9 @@
   "author": "Your Name",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/yourusername/ml-recomendations/issues"
+    "url": "https://github.com/netfoor/ml-recomendations/issues"
   },
-  "homepage": "https://github.com/yourusername/ml-recomendations#readme",
+  "homepage": "https://github.com/netfoor/ml-recomendations#readme",
   "dependencies": {
     "serverless-python-requirements": "^6.1.2"
   },

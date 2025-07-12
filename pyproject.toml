@@ -75,6 +75,6 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/yourusername/ml-recomendations"
-Repository = "https://github.com/yourusername/ml-recomendations.git"
-Issues = "https://github.com/yourusername/ml-recomendations/issues"
+Homepage = "https://github.com/netfoor/ml-recomendations"
+Repository = "https://github.com/netfoor/ml-recomendations.git"
+Issues = "https://github.com/netfoor/ml-recomendations/issues"

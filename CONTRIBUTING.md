@@ -9,7 +9,7 @@ Click the "Fork" button in the top-right corner of this repository.
 
 ### 2. Clone Your Fork
 ```bash
-git clone https://github.com/yourusername/ml-recomendations.git
+git clone https://github.com/netfoor/ml-recomendations.git
 cd ml-recomendations
 ```
 
