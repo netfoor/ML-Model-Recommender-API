@@ -2,16 +2,55 @@ service: model-recommender
 
 provider:
   name: aws
-  region: us-east-1
   runtime: python3.10
+  region: us-east-1
+  stage: dev
+  environment:
+    MODELS_TABLE: ${self:service}-${sls:stage}-models
+    
+  iam:
+    role:
+      statements:
+        - Effect: "Allow"
+          Action:
+            - dynamodb:Scan
+            - dynamodb:GetItem 
+            - dynamodb:PutItem 
+            - dynamodb:UpdateItem 
+            - dynamodb:DeleteItem 
+          Resource:
+            - "arn:aws:dynamodb:${aws:region}:${aws:accountId}:table/${self:provider.environment.MODELS_TABLE}"
 
 functions:
   api:
-    handler: app.main.handler
+    handler: app/main.handler
+    timeout: 10
+    memorySize: 256
     events:
       - httpApi:
           path: /recommend-model
           method: post
+
+  updater:
+    handler: update_models/update.main
+    timeout: 60
+    memorySize: 256
+    events:
+      - schedule: rate(1 day)
+
+resources:
+  Resources:
+    ModelsTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: ${self:provider.environment.MODELS_TABLE}
+        AttributeDefinitions:
+          - AttributeName: provider_model
+            AttributeType: S
+        KeySchema:
+          - AttributeName: provider_model
+            KeyType: HASH
+        BillingMode: PAY_PER_REQUEST
 
 plugins:
   - serverless-python-requirements

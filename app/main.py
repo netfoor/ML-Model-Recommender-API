@@ -1,18 +1,16 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from mangum import Mangum
-from .recommender import recommend_model
-from fastapi.responses import JSONResponse
-from fastapi import Request
+from .recommender import recommend_best_model
 
 app = FastAPI()
 
 @app.post("/recommend-model")
-async def recommend(request: Request):
-    data = await request.json()
-    task = data.get("task")
-    if not task:
-        return JSONResponse(content={"error": "Task is required"}, status_code=400)
-    result = recommend_model(task)
-    return JSONResponse(content=result)
+async def recommend_model(request: Request):
+    body = await request.json()
+    prompt = body.get("prompt")
+    provider = body.get("provider")
 
+    result = recommend_best_model(prompt, provider)
+    return result
+    
 handler = Mangum(app)
